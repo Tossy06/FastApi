@@ -8,3 +8,4 @@ class NoteResponse(BaseModel):
     id: int
     title: str
     content: str
+    owner: str
