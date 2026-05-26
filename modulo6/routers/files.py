@@ -20,6 +20,7 @@ async def upload(file: UploadFile = File(...)):
     path = f"uploads/{file.filename}"
     with open(path, "wb") as buffer:
         buffer.write(contents)
+        
     return {"filename": file.filename, "size_bytes": len(contents)}
 
 
