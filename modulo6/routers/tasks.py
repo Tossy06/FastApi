@@ -1,9 +1,11 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Request
+from config import limiter
 
 router = APIRouter(prefix="/tasks", tags=["Tasks"])
 
 @router.get("")
-def get_tasks():
+@limiter.limit("3/minute")
+def get_tasks(request: Request):
     # Por ahora estará hasrcodeada
     return [
         {"id": 1, "title": "Aprender FastAPI", "done": False},
