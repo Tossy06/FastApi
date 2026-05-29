@@ -1,13 +1,14 @@
 from fastapi import FastAPI, WebSocket
 from fastapi.websockets import WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
-from routers import tasks, files
+from routers import tasks, files, gallery
 from fastapi import Request
 import time
 import os
 from slowapi import _rate_limit_exceeded_handler
 from slowapi.errors import RateLimitExceeded
 from config import limiter
+UPLOAD_DIR = "uploads"
 
 
 app = FastAPI(
@@ -56,6 +57,29 @@ async def websocket__enpoint(websocket: WebSocket):
     except WebSocketDisconnect:
         print("Cliente desconectado")
 
+# WebSocket para verificar existencia de archivos
+@app.websocket("/ws/gallery")
+async def websocket_gallery(websocket: WebSocket):
+    await websocket.accept()
+    try:
+        while True:
+            # Recibir mensaje con nombre de archivo
+            filename = await websocket.receive_text()
+            
+            # Verificar si el archivo existe en uploads/
+            file_path = os.path.join(UPLOAD_DIR, filename)
+            if os.path.exists(file_path) and os.path.isfile(file_path):
+                await websocket.send_text("Existe")
+            else:
+                await websocket.send_text("No existe")
+                
+    except WebSocketDisconnect:
+        print(f"Cliente WebSocket desconectado")
+    except Exception as e:
+        print(f"Error en WebSocket: {str(e)}")
+        await websocket.close()
+
 app.include_router(tasks.router, prefix="/api/v1")
 app.include_router(files.router, prefix="/api/v1")
+app.include_router(gallery.router, prefix="/api/v1")
 
