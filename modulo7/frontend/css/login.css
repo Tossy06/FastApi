@@ -1,0 +1,83 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #6e8efb, #a777e3 50%, #ff7eb3);
+    background-attachment: fixed;
+    font-family: "Segoe UI", system-ui, sans-serif;
+}
+
+.glass-card {
+    width: 100%;
+    max-width: 420px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    padding: 2rem;
+    color: #fff;
+}
+
+.glass-card h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.glass-tabs {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-tabs .nav-link {
+    color: rgba(255, 255, 255, 0.7);
+    border: none;
+    background: transparent;
+    font-weight: 500;
+}
+
+.glass-tabs .nav-link:hover {
+    color: #fff;
+}
+
+.glass-tabs .nav-link.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.glass-card .form-label {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+}
+
+.glass-card .form-control {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+}
+
+.glass-card .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.glass-card .form-control:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.6);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.15);
+    color: #fff;
+}
+
+.glass-card .btn-glass {
+    background: rgba(255, 255, 255, 0.9);
+    color: #5b3cc4;
+    font-weight: 600;
+    border: none;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.glass-card .btn-glass:hover {
+    background: #fff;
+    transform: translateY(-1px);
+}

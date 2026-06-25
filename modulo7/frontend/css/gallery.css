@@ -1,0 +1,116 @@
+body {
+    min-height: 100vh;
+    margin: 0;
+    background: radial-gradient(circle at top left, #1f1147, #0d0d1f 70%);
+    font-family: "Segoe UI", system-ui, sans-serif;
+    color: #fff;
+}
+
+.gallery-header {
+    padding: 2.5rem 1rem 1.5rem;
+    text-align: center;
+}
+
+.gallery-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    background: linear-gradient(135deg, #ff7eb3, #a777e3, #6e8efb);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.gallery-header p {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.glass-panel {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 1rem;
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.35);
+    padding: 1.5rem;
+}
+
+.glass-panel .form-label {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.9rem;
+}
+
+.glass-panel .form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: #fff;
+}
+
+.glass-panel .form-control:focus {
+    background: rgba(255, 255, 255, 0.18);
+    border-color: rgba(255, 255, 255, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.12);
+    color: #fff;
+}
+
+.btn-glass {
+    background: rgba(255, 255, 255, 0.9);
+    color: #3a1f78;
+    font-weight: 600;
+    border: none;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.btn-glass:hover {
+    background: #fff;
+    transform: translateY(-1px);
+}
+
+.btn-glass-outline {
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #fff;
+    font-weight: 600;
+    transition: background 0.15s ease;
+}
+
+.btn-glass-outline:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+#items-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+#items-container > div {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+#items-container > div:hover {
+    transform: translateY(-4px);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+#items-container > div h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.4rem;
+    background: linear-gradient(135deg, #ff7eb3, #a777e3);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+#items-container > div p {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
